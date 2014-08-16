@@ -1,0 +1,54 @@
+snippet script "<script> tag"
+<script type="text/javascript" src="$1"></script>
+endsnippet
+
+snippet link "<link> tag"
+<link rel="stylesheet" type="text/css" href="$0.css">
+endsnippet
+
+snippet html "A generic HTML5 template"
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>$1</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  $0
+</body>
+</html>
+endsnippet
+
+#snippet "^\s*(\w+)" "A generic tag wrapper" br
+#  <`!p snip.rv = match.group(1)`>$0</`!p snip.rv = match.group(1)`>
+#endsnippet
+
+snippet "\.([\w-]+)" "<div> tag with class" br
+<div class="`!p snip.rv = match.group(1)`">
+  $0
+</div>
+endsnippet
+
+snippet "a" "<a> tag" br
+<a href="$2">$0</a>
+endsnippet
+
+snippet checkbox "Checkbox <input> tag"
+<input type="checkbox" name="$1" id="$2" value="$3"/>
+endsnippet
+
+snippet radio "Radio <input> tag"
+<input type="radio" name="$1" id="$2" value="$3"/>
+endsnippet
+
+snippet password "Password <input> tag"
+<input type="password" name="$1" id="$2"/>
+endsnippet
+
+snippet input "Text <input> tag"
+<input type="text" name="$1" id="$2" placeholder="$3"/>
+endsnippet
+
