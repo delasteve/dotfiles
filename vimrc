@@ -13,6 +13,8 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-scripts/PreserveNoEOL'
 
 call vundle#end()
 
@@ -65,8 +67,10 @@ highlight SignifySignChange ctermfg=yellow
 highlight clear SignColumn
 
 set nu
+set cul
 set list
-set listchars=tab:»\ ,eol:\ \,trail:·
+set hidden
+set listchars=tab:»\ ,eol:\¬\,trail:·
 set autoindent
 set copyindent
 set nobackup
@@ -77,8 +81,16 @@ set directory=~/.vim/.tmp,~/tmp,/tmp
 if has("autocmd")
   filetype on
 
+  function! AppendLineToEndOfFile()
+    if getline('$') !~ "^$"
+      call append(line('$'), '')
+    endif
+  endfunction
+
+  autocmd BufWritePre * call AppendLineToEndOfFile()
   autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
+  autocmd FileType zsh setlocal tabstop=2 shiftwidth=2 expandtab
 endif
 
