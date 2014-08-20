@@ -92,20 +92,9 @@ set directory=~/.vim/.tmp,~/tmp,/tmp
 if has("autocmd")
   filetype on
 
-  " Add a blank line to the end of a file on write
-  autocmd BufWritePre * call AppendLineToEndOfFile()
-
   " Defaults should editorconfig not be used
   autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType zsh setlocal tabstop=2 shiftwidth=2 expandtab
 endif
-
-" Custom functions
-function! AppendLineToEndOfFile()
-  if getline('$') !~ "^$"
-    call append(line('$'), '')
-  endif
-endfunction
-
