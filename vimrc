@@ -4,16 +4,17 @@ filetype off
 " Vundle/Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'Raimondi/delimitMate'
+Plugin 'gmarik/vundle.vim'
+Plugin 'sirver/ultisnips'
+Plugin 'raimondi/delimitMate'
 Plugin 'mhinz/vim-signify'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/PreserveNoEOL'
+Plugin 'vim-scripts/preservenoeol'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 " Syntax highlighting
@@ -51,6 +52,10 @@ let g:airline_symbols.paste='Þ'
 let g:airline_symbols.paste='∥'
 let g:airline_symbols.whitespace='Ξ'
 
+" Syntastic
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -76,6 +81,7 @@ set list
 set listchars=tab:»\ ,eol:\¬\,trail:·
 " Do not make a backup when overwriting a file
 set nobackup
+set nowritebackup
 " Don't wrap lines
 set nowrap
 " No swap files
