@@ -4,7 +4,7 @@
 
 ```
 git clone git@github.com:delasteve/dotfiles.git ~/.dotfiles
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/vundle.vim.git ~/.vim/bundle/vundle.vim
 ```
 
 ## Setting up symlinks
