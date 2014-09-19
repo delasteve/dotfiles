@@ -15,12 +15,11 @@ Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/preservenoeol'
 Plugin 'scrooloose/syntastic'
+Plugin 'jelera/vim-javascript-syntax'
 call vundle#end()
 
 " Syntax highlighting
 syntax on
-
-filetype plugin indent on
 
 " Encoding
 set encoding=utf-8
