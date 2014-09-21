@@ -16,6 +16,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-scripts/preservenoeol'
 Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'elzr/vim-json'
 call vundle#end()
 
 " Syntax highlighting
@@ -54,6 +55,7 @@ let g:airline_symbols.whitespace='Ξ'
 " Syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['eslint']
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
