@@ -74,12 +74,16 @@ highlight clear SignColumn
 
 " Show line numbers
 set nu
+" Autoreload files
+set autoread
+" Yank and paste with the system clipboard
+set clipboard=unnamed
 " Highlight current line
 set cul
 " Show invisible characters
 set list
 " Set invisible characters to symbols
-set listchars=tab:»\ ,eol:\¬\,trail:·
+set listchars=tab:»\ ,trail:·
 " Do not make a backup when overwriting a file
 set nobackup
 set nowritebackup
@@ -89,6 +93,8 @@ set nowrap
 set noswapfile
 " If we have a swap file, put it here.
 set directory=~/.vim/.tmp,~/tmp,/tmp
+" Show a navigable menu for tab completion
+set wildmenu
 
 if has("autocmd")
   filetype on
@@ -98,4 +104,6 @@ if has("autocmd")
   autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
   autocmd FileType zsh setlocal tabstop=2 shiftwidth=2 expandtab
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.md set spell
 endif
