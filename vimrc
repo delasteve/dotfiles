@@ -55,6 +55,10 @@ let g:airline_symbols.whitespace='Ξ'
 " Syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+highlight SyntasticErrorSign ctermfg=red
+highlight SyntasticWarningSign ctermfg=yellow
 let g:syntastic_javascript_checkers = ['eslint']
 
 " UltiSnips
