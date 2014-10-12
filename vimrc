@@ -76,6 +76,8 @@ highlight SignifySignDelete ctermfg=red
 highlight SignifySignChange ctermfg=yellow
 highlight clear SignColumn
 
+" Autoindent
+set autoindent
 " Show line numbers
 set nu
 " Autoreload files
