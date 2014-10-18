@@ -60,6 +60,7 @@ let g:syntastic_warning_symbol = "⚠"
 highlight SyntasticErrorSign ctermfg=red
 highlight SyntasticWarningSign ctermfg=yellow
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>']
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
