@@ -102,6 +102,11 @@ set noswapfile
 set directory=~/.vim/.tmp,~/tmp,/tmp
 " Show a navigable menu for tab completion
 set wildmenu
+" splitting feels more natural
+set splitbelow
+set splitright
+
+
 
 if has("autocmd")
   filetype on
