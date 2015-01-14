@@ -8,7 +8,7 @@ Plugin 'gmarik/vundle.vim'
 Plugin 'sirver/ultisnips'
 Plugin 'raimondi/delimitMate'
 Plugin 'mhinz/vim-signify'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'zenorocha/dracula-theme', { 'rtp': 'vim/' }
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -27,8 +27,8 @@ set encoding=utf-8
 
 " Color scheme
 set t_Co=256
-if filereadable(expand("$HOME/.vim/bundle/jellybeans.vim/colors/jellybeans.vim"))
-  colorscheme jellybeans
+if filereadable(expand("$HOME/.vim/bundle/dracula-theme/vim/colors/dracula.vim"))
+  color dracula
 endif
 
 " Airline
