@@ -8,7 +8,7 @@ Plugin 'gmarik/vundle.vim'
 Plugin 'sirver/ultisnips'
 Plugin 'raimondi/delimitMate'
 Plugin 'mhinz/vim-signify'
-Plugin 'zenorocha/dracula-theme', { 'rtp': 'vim/' }
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ludovicchabant/vim-lawrencium'
@@ -17,6 +17,8 @@ Plugin 'vim-scripts/preservenoeol'
 Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'elzr/vim-json'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 call vundle#end()
 
 " Syntax highlighting
@@ -27,8 +29,8 @@ set encoding=utf-8
 
 " Color scheme
 set t_Co=256
-if filereadable(expand("$HOME/.vim/bundle/dracula-theme/vim/colors/dracula.vim"))
-  color dracula
+if filereadable(expand("$HOME/.vim/bundle/jellybeans.vim/colors/jellybeans.vim"))
+  colorscheme jellybeans
 endif
 
 " Airline
@@ -106,8 +108,6 @@ set wildmenu
 set splitbelow
 set splitright
 
-
-
 if has("autocmd")
   filetype on
 
@@ -119,3 +119,17 @@ if has("autocmd")
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile *.md set spell
 endif
+
+func Backspace()
+  if col('.') == 1
+    if line('.') != 1
+      return  "\<ESC>kA\<Del>"
+    else
+      return ""
+    endif
+  else
+    return "\<Left>\<Del>"
+  endif
+endfunc
+
+inoremap <BS> <c-r>=Backspace()<CR>
