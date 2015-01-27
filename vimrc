@@ -1,25 +1,10 @@
 set nocompatible
 filetype off
 
-" Vundle/Plugins
-set rtp+=~/.vim/bundle/vundle.vim
-call vundle#begin()
-Plugin 'gmarik/vundle.vim'
-Plugin 'sirver/ultisnips'
-Plugin 'raimondi/delimitMate'
-Plugin 'mhinz/vim-signify'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/preservenoeol'
-Plugin 'scrooloose/syntastic'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'elzr/vim-json'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
-call vundle#end()
+" Vundle
+if filereadable(expand("~/.dotfiles/vim/vundles.vim"))
+  source ~/.dotfiles/vim/vundles.vim
+endif
 
 " Syntax highlighting
 syntax on
@@ -29,7 +14,7 @@ set encoding=utf-8
 
 " Color scheme
 set t_Co=256
-if filereadable(expand("$HOME/.vim/bundle/jellybeans.vim/colors/jellybeans.vim"))
+if filereadable(expand("~/.vim/bundle/jellybeans.vim/colors/jellybeans.vim"))
   colorscheme jellybeans
 endif
 
