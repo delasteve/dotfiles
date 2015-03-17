@@ -15,4 +15,5 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'elzr/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+Plugin 'toyamarinyon/vim-swift'
 call vundle#end()
