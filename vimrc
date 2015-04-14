@@ -47,7 +47,7 @@ let g:syntastic_warning_symbol = "⚠"
 highlight SyntasticErrorSign ctermfg=red
 highlight SyntasticWarningSign ctermfg=yellow
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_tidy_ignore_errors = ['trimming empty <span>', 'proprietary attribute "ng-']
+let g:syntastic_html_tidy_ignore_errors= ["proprietary attribute \"autofocus", "proprietary attribute \"ui-", "proprietary attribute \"ng-", "<form> proprietary attribute \"novalidate\"", "<form> lacks \"action\" attribute", "trimming empty <span>", "<input> proprietary attribute \"autofocus\"", "inserting implicit <span>", "<input> proprietary attribute \"required\"", "trimming empty <select>", "trimming empty <button>", "<html> proprietary attribute \"app\"", "proprietary attribute \"autocomplete\"", "trimming empty <i>", "proprietary attribute \"required\"", "proprietary attribute \"placeholder\"", "<ng-include> is not recognized!", "discarding unexpected <ng-include>", "missing </button>", "replacing unexpected button by </button>", "discarding unexpected </ng-include>"]
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -99,8 +99,35 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+function! CustomFoldText()
+  let fs = v:foldstart
+  while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+  endwhile
+
+  if fs > v:foldend
+    let line = getline(v:foldstart)
+  else
+    let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+  endif
+
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = ' '
+  let foldtextstart = strpart(line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+
+set foldtext=CustomFoldText()
+
+au FileType javascript call JavaScriptFold()
+
 if has("autocmd")
   filetype on
+
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent loadview
 
   " Defaults should editorconfig not be used
   autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
