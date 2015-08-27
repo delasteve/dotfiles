@@ -16,9 +16,10 @@ outputStep() {
 }
 
 updateLocalRepository() {
-  pushd ${HOME}/.dotfiles &>/dev/null
-  git pull origin master &>/dev/null
-  popd &>/dev/null
+  (
+    cd ${HOME}/.dotfiles &>/dev/null
+    git pull origin master &>/dev/null
+  )
 }
 
 checkForVundle() {
@@ -33,7 +34,7 @@ checkForVundle() {
 checkForUltiSnips() {
   if [ ! -d "${HOME}/.vim/UltiSnips" ]; then
     echo -e "UltiSnips symlink not found. Linking...${clear}"
-    ln -s ~/.dotfiles/vim/UltiSnips ~/.vim
+    ln -s ~/.dotfiles/vim/vim/UltiSnips ~/.vim
   else
     echo -e "UltiSnips symlink found. Skipping...${clear}"
   fi
@@ -46,7 +47,7 @@ updateLocalRepository
 
 outputStep "Symlinking ~/.vimrc"
 rm -f ~/.vimrc
-ln -s ~/.dotfiles/vimrc ~/.vimrc
+ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 
 outputStep "Checking for Vundle"
 checkForVundle
@@ -62,5 +63,9 @@ vim +PluginUpdate +qa
 
 outputStep "Checking for UltiSnips symlink"
 checkForUltiSnips
+
+outputStep "Symlinking ~/.tmux.conf"
+rm -f ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 outputSection "Installation complete"

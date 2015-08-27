@@ -16,4 +16,5 @@ Plugin 'elzr/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
 Plugin 'toyamarinyon/vim-swift'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
