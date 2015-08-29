@@ -17,13 +17,13 @@ set t_Co=256
 if filereadable(expand("~/.vim/bundle/base16-vim/colors/base16-default.vim"))
   colorscheme base16-tomorrow
 
-  highlight linenr ctermfg=darkgrey ctermbg=black
-  highlight cursorline ctermbg=232
-  highlight cursorcolumn ctermbg=232
-  highlight cursorlinenr ctermbg=232 ctermfg=white
+  highlight LineNr ctermfg=darkgrey ctermbg=black
+  highlight CursorLine ctermbg=232
+  highlight CursorColumn ctermbg=232
+  highlight CursorLineNr ctermbg=232 ctermfg=white
   highlight Visual ctermbg=darkgrey
   highlight StatusLine ctermbg=232
-  highlight Wildmenu ctermfg=black
+  highlight WildMenu ctermfg=black
   highlight SignifySignAdd ctermfg=green ctermbg=black
   highlight SignifySignDelete ctermfg=red ctermbg=black
   highlight SignifySignChange ctermfg=yellow ctermbg=black
@@ -35,7 +35,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts=1
-let g:airline_theme='dark'
+let g:airline_theme='bubblegum'
 
 " Syntastic
 let g:syntastic_auto_loc_list=1
