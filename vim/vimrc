@@ -22,6 +22,8 @@ if filereadable(expand("~/.vim/bundle/base16-vim/colors/base16-default.vim"))
   highlight cursorcolumn ctermbg=232
   highlight cursorlinenr ctermbg=232 ctermfg=white
   highlight Visual ctermbg=darkgrey
+  highlight StatusLine ctermbg=232
+  highlight Wildmenu ctermfg=black
   highlight SignifySignAdd ctermfg=green ctermbg=black
   highlight SignifySignDelete ctermfg=red ctermbg=black
   highlight SignifySignChange ctermfg=yellow ctermbg=black
