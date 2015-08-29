@@ -22,6 +22,19 @@ updateLocalRepository() {
   )
 }
 
+checkForColorSchemes() {
+  if [ ! -d "${HOME}/.config/base16-shell" ]; then
+    echo -e "Color schemes not found. Installing...${clear}"
+    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell &>/dev/null
+  else
+    echo -e "Color schemes found. Updating...${clear}"
+    (
+      cd ~/.config/base16-shell
+      git pull origin master &>/dev/null
+    )
+  fi
+}
+
 checkForVundle() {
   if [ ! -d "${HOME}/.vim/bundle/vundle.vim" ]; then
     echo -e "Vundle not found. Installing...${clear}"
@@ -44,6 +57,9 @@ outputSection "Installing dotfiles"
 
 outputStep "Updating repository"
 updateLocalRepository
+
+outputStep "Checking for Vundle"
+checkForColorSchemes
 
 outputStep "Symlinking ~/.vimrc"
 rm -f ~/.vimrc
