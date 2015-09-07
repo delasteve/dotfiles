@@ -58,7 +58,7 @@ outputSection "Installing dotfiles"
 outputStep "Updating repository"
 updateLocalRepository
 
-outputStep "Checking for Vundle"
+outputStep "Checking for Color Schemes"
 checkForColorSchemes
 
 outputStep "Symlinking ~/.vimrc"
